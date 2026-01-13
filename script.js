@@ -44,8 +44,9 @@ if (loginForm) {
     e.preventDefault();
     console.log("SUBMIT CLICKED");
 
-    const email = loginForm.querySelector('input[type="email"]').value;
-    const password = loginForm.querySelector('input[type="password"]').value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
 
     console.log("Email:", email);
     console.log("Password length:", password.length);
