@@ -42,6 +42,7 @@ console.log("Login form detected:", loginForm);
 if (loginForm) {
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
+    alert("Submit handler reached");
     console.log("SUBMIT CLICKED");
 
     const email = document.getElementById("email").value;
