@@ -39,32 +39,21 @@ console.log("🔥 Firebase connected successfully");
    AUTHENTICATION LOGIC
 ========================== */
 
+console.log("AUTH SCRIPT LOADED");
+
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM CONTENT LOADED");
+
   const loginForm = document.getElementById("loginForm");
-  console.log("Login form detected:", loginForm);
+  console.log("LOGIN FORM VALUE:", loginForm);
 
-  if (!loginForm) return;
+  if (!loginForm) {
+    console.log("LOGIN FORM NOT FOUND — EXITING");
+    return;
+  }
 
-  loginForm.addEventListener("submit", async (e) => {
+  loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    alert("Submit handler reached");
-
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      alert("Login successful");
-      window.location.href = "marketplace.html";
-    } catch (error) {
-      if (error.code === "auth/user-not-found") {
-        await createUserWithEmailAndPassword(auth, email, password);
-        alert("Account created successfully");
-        window.location.href = "marketplace.html";
-      } else {
-        alert(error.message);
-      }
-    }
+    alert("SUBMIT HANDLER REACHED");
   });
-});
 
