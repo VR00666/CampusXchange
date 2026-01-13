@@ -35,44 +35,36 @@ console.log("🔥 Firebase connected successfully");
    AUTHENTICATION LOGIC
 ========================== */
 
-const loginForm = document.getElementById("loginForm");
+/* ==========================
+   AUTHENTICATION LOGIC
+========================== */
 
-console.log("Login form detected:", loginForm);
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.getElementById("loginForm");
+  console.log("Login form detected:", loginForm);
 
-if (loginForm) {
+  if (!loginForm) return;
+
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     alert("Submit handler reached");
-    console.log("SUBMIT CLICKED");
 
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-
-    console.log("Email:", email);
-    console.log("Password length:", password.length);
-
     try {
-      console.log("Trying login...");
       await signInWithEmailAndPassword(auth, email, password);
       alert("Login successful");
       window.location.href = "marketplace.html";
     } catch (error) {
-      console.error("Login error:", error);
-
       if (error.code === "auth/user-not-found") {
-        console.log("User not found, creating account...");
-        try {
-          await createUserWithEmailAndPassword(auth, email, password);
-          alert("Account created & logged in");
-          window.location.href = "marketplace.html";
-        } catch (signupError) {
-          console.error("Signup error:", signupError);
-          alert(signupError.message);
-        }
+        await createUserWithEmailAndPassword(auth, email, password);
+        alert("Account created successfully");
+        window.location.href = "marketplace.html";
       } else {
         alert(error.message);
       }
     }
   });
-}
+});
+
