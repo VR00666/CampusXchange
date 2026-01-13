@@ -37,26 +37,35 @@ console.log("🔥 Firebase connected successfully");
 
 const loginForm = document.getElementById("loginForm");
 
+console.log("Login form detected:", loginForm);
+
 if (loginForm) {
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
+    console.log("SUBMIT CLICKED");
 
     const email = loginForm.querySelector('input[type="email"]').value;
     const password = loginForm.querySelector('input[type="password"]').value;
 
+    console.log("Email:", email);
+    console.log("Password length:", password.length);
+
     try {
-      // Try logging in
+      console.log("Trying login...");
       await signInWithEmailAndPassword(auth, email, password);
       alert("Login successful");
       window.location.href = "marketplace.html";
     } catch (error) {
-      // If user does not exist, create account
+      console.error("Login error:", error);
+
       if (error.code === "auth/user-not-found") {
+        console.log("User not found, creating account...");
         try {
           await createUserWithEmailAndPassword(auth, email, password);
-          alert("Account created successfully");
+          alert("Account created & logged in");
           window.location.href = "marketplace.html";
         } catch (signupError) {
+          console.error("Signup error:", signupError);
           alert(signupError.message);
         }
       } else {
@@ -65,5 +74,3 @@ if (loginForm) {
     }
   });
 }
-
-   
