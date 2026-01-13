@@ -1,3 +1,4 @@
+console.log("🚨 THIS IS THE LATEST SCRIPT.JS VERSION 🚨");
 
 
     /* ==========================
@@ -56,4 +57,4 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     alert("SUBMIT HANDLER REACHED");
   });
-
+});
