@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+}
+
+header {
+    background: #1f3c88;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: white;
+    color: #1f3c88;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.about {
+    padding: 40px;
+    background: white;
+    margin: 30px;
+    border-radius: 8px;
+}
+.login-container {
+    width: 350px;
+    margin: 100px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #1f3c88;
+}
+
+.login-container input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.login-container button {
+    width: 95%;
+    padding: 10px;
+    background: #1f3c88;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.note {
+    margin-top: 15px;
+    font-size: 14px;
+    color: gray;
+}
+.note.small {
+    font-size: 13px;
+    color: #555;
+}
+.market-header {
+    background: #1f3c88;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.items-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 30px;
+}
+
+.item-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.item-card h3 {
+    margin-top: 0;
+}
+
+.price {
+    font-weight: bold;
+    color: #1f3c88;
+}
+
+.item-card button {
+    margin-top: 10px;
+    padding: 8px;
+    width: 100%;
+    background: #1f3c88;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.form-container {
+    width: 400px;
+    margin: 60px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #1f3c88;
+}
+
+.form-container input,
+.form-container select,
+.form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background: #1f3c88;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}

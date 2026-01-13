@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sell Item | CampusXchange</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Sell an Item</h2>
+
+<form id="addItemForm">
+    <input type="text" id="itemName" placeholder="Item Name" required>
+
+    <select id="itemCategory" required>
+        <option value="">Select Category</option>
+        <option>Books</option>
+        <option>Electronics</option>
+        <option>Lab Components</option>
+        <option>Bicycle</option>
+        <option>Others</option>
+    </select>
+
+    <input type="number" id="itemPrice" placeholder="Price (₹)" required>
+
+    <textarea id="itemDescription" placeholder="Item Description" rows="4" required></textarea>
+
+    <input type="text" id="itemContact" placeholder="Contact Number / WhatsApp" required>
+
+    <button type="submit">Post Item</button>
+</form>
+
+    </div>
+
+<script type="module" src="script.js"></script>
+
+
+</body>
+</html>
