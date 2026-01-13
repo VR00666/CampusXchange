@@ -1,10 +1,16 @@
 
 
     /* ==========================
-       ADD ITEM FORM LOGIC
-    ========================== */
+   FIREBASE INITIALIZATION
+========================== */
 // Firebase SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 
 // TODO: Replace with your Firebase config
@@ -19,8 +25,45 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
 
 
 console.log("🔥 Firebase connected successfully");
+
+/* ==========================
+   AUTHENTICATION LOGIC
+========================== */
+
+const loginForm = document.getElementById("loginForm");
+
+if (loginForm) {
+  loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = loginForm.querySelector('input[type="email"]').value;
+    const password = loginForm.querySelector('input[type="password"]').value;
+
+    try {
+      // Try logging in
+      await signInWithEmailAndPassword(auth, email, password);
+      alert("Login successful");
+      window.location.href = "marketplace.html";
+    } catch (error) {
+      // If user does not exist, create account
+      if (error.code === "auth/user-not-found") {
+        try {
+          await createUserWithEmailAndPassword(auth, email, password);
+          alert("Account created successfully");
+          window.location.href = "marketplace.html";
+        } catch (signupError) {
+          alert(signupError.message);
+        }
+      } else {
+        alert(error.message);
+      }
+    }
+  });
+}
 
    
